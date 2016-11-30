@@ -2,8 +2,8 @@
 
 import os, sys
 
-for file in sys.argv:
+for file in sys.argv[1:]:
     f = open(file, 'r');
-    list = f.read().split('\n');
-    for x in list:
-        print x;
+    lines = f.read().split('\n');
+    for line in lines:
+        print (line);
