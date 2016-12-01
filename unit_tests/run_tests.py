@@ -8,7 +8,7 @@ from tests.tests import *;
 # Usage ...
 # Flags:
 # -o: output
-# -
+# -h: no header
 
 FLAG_COLOR = 0x1;
 FLAG_FULL = 0x2;
@@ -23,3 +23,4 @@ for arg in sys.argv[1:]:
             flags |= FLAG_FULL;
 
 test_length();
+test_comments();

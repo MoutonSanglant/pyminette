@@ -37,6 +37,6 @@ class StaticVar:
 v = StaticVar();
 def check_comment(n, line):
     if (v.fn[v.fn_entry](n, line)):
-        print("L%i -> Commentaire malformé." %(n) + "\n" + line);
+        print("L%i -> Commentaire mal formé." %(n) + "\n" + line);
         return (1);
     return (0);

@@ -33,7 +33,8 @@ for file in sys.argv[1 + flag_count:]:
     l_number = 1;
     errors = 0;
     for line in lines:
-        errors += analyse(l_number, line);
+        if l_number > 11:
+            errors += analyse(l_number, line);
         l_number +=1 ;
     if (not errors):
         print (color.colorSet.OKGREEN + "Il semblerait fort que ce fichier soit tout parfait, bravo !" + color.colorSet.EOC);

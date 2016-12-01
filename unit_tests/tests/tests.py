@@ -24,8 +24,18 @@ def test_file(filename):
         os.remove('tmp');
 
 def test_length():
-    test_file('valid_length');
     test_file('invalid_length');
+    test_file('valid_length');
+
+def test_comments():
+    test_file('invalid_comment_bad_end1');
+    test_file('invalid_comment_bad_end2');
+    test_file('invalid_comment_bad_start1');
+    test_file('invalid_comment_bad_start2');
+    test_file('invalid_comment_nospace');
+    test_file('invalid_comment_blank');
+    test_file('invalid_comment_empty');
+    test_file('valid_comment');
 
 def full_test():
     test_length();
