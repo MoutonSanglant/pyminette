@@ -1,0 +1,246 @@
+
+################
+# Dénomination #
+################
+- nom structure sans s_
+- nom typedef sans t_
+- nom union sans u_
+- nom enum sans e_
+- nom globale sans g_
+- nom variable avec majuscule(s)
+- nom de fichier/répertoire avec majuscule(s)
+- fichier non compilable
+- caractère non-ascii
+** affichage des noms de toutes les variables (noms explicites/mnémoniques)
+** compter les globales
+** flag: globales interdites
+
+
+#############
+# Header 42 #
+#############
+- header incorect
+
+
+###########
+# Général #
+###########
+==== count
+- ligne > 80 caractères
+==== align
+>> Global scope bad aligned
+- noms fonctions non-aligné
+- noms structures non-aligné
+- ligne vide avec espace/tabulation
+
+
+#############
+# Accolades #
+#############
+- retour à la ligne manquant après '{' ou '}'
+
+
+#############
+# Variables #
+#############
+- l'asterisk d'un pointeur n'est pas collé au nom
+
+Exemples:
+	// correct
+	int		*a;
+	void	*ft_memalloc(int size);
+	(int *)b;
+
+	// incorrect
+	int		* a;
+	int *	b;
+	int*	c;
+	(int*)d;
+
+
+####################
+# Fichiers headers #
+####################
+- tout autre que: include, déclaration, define, prototype, macros
+- fichier header non-protégé, macro témoin absente (ft_foo.h -> FT_FOO_H)
+- prototypes dans .c
+** include inutile
+** liste des includes du fichier
+
+
+###########################
+# Macros & Pré-processeur #
+###########################
+- 'include' séparé
+- 'include' un fichier .c
+- macro multiligne
+- noms macros en majuscule
+- pré-processeur mal indenté
+** define définissant du code (haha)
+
+
+Les includes doivent se trouver au début du fichier, avant tout autre instruction
+
+
+#############
+# Fonctions #
+#############
+==== count
+- nb lignes > 25
+- nb parametres > 4
+- nb variables > 5
+- nb fonctions > 5
+==== align
+- déclaration noms variables non-aligné
+==== signature
+- format signature incorrect
+- nom paramètre absent
+- 'void' manquant si paramètres < 0
+==== format
+- instruction avant les déclarations
+- ligne vide manquante après les déclaration
+- ligne vide présente (autre que le séparateur des déclarations)
+- assignation multiple
+- ligne vide manquante après fonction
+- ligne vide > 1 après fonction
+
+
+##############
+# Prototypes #
+##############
+- nom paramètre absent
+
+
+#############################
+# Typedef/Struct/Enum/Union #
+#############################
+- déclaré dans un fichier .c
+- tabulation manquante avant le nom
+- espace > 1 entre 'struct' et son type lors de déclaration
+- pas de tabulation entre 2 paramètres d'un typedef '(***** A VERIFIER *****)
+==== align
+- alignement incorrect struct/union/enum avec typedef
+
+
+###############
+# Multi-ligne #
+###############
+- define multi-ligne
+** opérateur manquant en début de ligne
+
+
+################
+# Instructions #
+################
+- quelque-chose après ';'
+- espace en début de ligne
+- double espace
+
+
+###########
+# Espaces #
+###########
+- espace manquant après ','
+- espace manquant avant/après un opérateur
+
+
+##########
+# Appels #
+##########
+- espace après le nom d'une fonction
+
+Exemples:
+	// correct
+	ft_putchar('a');
+	while (1)
+		break ;
+
+	// incorrect
+	ft_putchar ('a');
+	while(1)
+		break;
+
+
+############
+# Interdit #
+############
+- for
+- do
+- while
+- switch
+- case
+- goto
+- (...) ? ((...) ? ... : ...) : ...;
+- tableaux à taille variable VLA (Variable Length Array)
+
+
+############
+# Mots-clé #
+############
+- espace manquant après un mot-clé SAUF 'sizeof' et les types (int, float, ...)
+
+== ANSI C ==
+auto <-- ??? (TEST)
+break
+case <-- forbidden
+char
+const
+continue
+default <-- ??? (TEST)
+do <-- forbidden
+double
+else
+enum
+extern <-- (TEST)
+float
+for <-- forbidden
+goto <-- forbidden
+if
+int
+long
+register <-- (TEST)
+return
+short
+signed
+sizeof
+static
+struct
+switch <-- forbidden
+typedef
+union
+unsigned
+void
+volatile <-- ??? (TEST)
+while
+
+== TIGCC ==
+asm
+typeof
+inline
+
+
+################
+# Commentaires #
+################
+- dans corps de fonction
+- caractère sur ligne départ
+- caractère sur ligne finale
+- ligne commentaire vide
+- ligne commentaire sans '**'
+
+
+
+########################
+### format signature ###
+########################
+
+Les signatures de fonctions doivent être formatées comme-ci:
+ - mot(s)-clé (séparés par des espaces)
+ - tabulation(s)
+ - nom
+ - paramètre(s)
+
+[kw1 kw2 ...]	nom(type v1, type v2, ...)
+Exemple:
+static int		addition(int a, int b);
+
