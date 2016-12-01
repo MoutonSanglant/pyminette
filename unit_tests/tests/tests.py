@@ -9,16 +9,16 @@ def compare_file(filename, res):
     exp = f.read();
     if res != exp:
         print("\033[31m[-]\033[0m " + filename);
-        print('expected:');
+        print('\033[33mexpected:\033[0m');
         print(exp);
-        print('received:');
+        print('\033[33mreceived:\033[0m');
         print(res);
     else:
         print("\033[32m[+]\033[0m " + filename);
 
 def test_file(filename):
     with open('tmp', 'w+') as outfile:
-        call(['../pyminette.py', 'inputs/' + filename + '.c'], stdout=outfile);
+        call(['../pyminette.py', '-c', 'inputs/' + filename + '.c'], stdout=outfile);
         outfile.seek(0);
         compare_file(filename, outfile.read());
         os.remove('tmp');

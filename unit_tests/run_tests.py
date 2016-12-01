@@ -4,6 +4,12 @@
 import sys;
 from tests.tests import *;
 
+## TODO
+# Usage ...
+# Flags:
+# -o: output
+# -
+
 FLAG_COLOR = 0x1;
 FLAG_FULL = 0x2;
 
