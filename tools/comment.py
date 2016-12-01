@@ -1,3 +1,5 @@
+# coding: utf8
+
 """
 comment_lines = 0;
 def test_comment(l_number, line):
