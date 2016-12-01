@@ -2,7 +2,7 @@
 # coding: utf8
 
 import sys;
-from tests.tests import *;
+from tests.common import test_length, test_comments;
 
 ## TODO
 # Usage ...
