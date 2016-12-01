@@ -1,3 +1,4 @@
+# coding: utf8
 
 class VisibleColor:
     HEADER = '\033[95m'
