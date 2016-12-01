@@ -1,5 +1,7 @@
 # coding: utf8
+
 import re
+from i18n.locale import msg;
 
 b1 = re.compile("\A/\*\Z");					# debut de commentaire bien placé au début de la ligne.
 b2 = re.compile("/\*");						# symbole du début de commentaire ignorant son placement.
@@ -37,6 +39,7 @@ class StaticVar:
 v = StaticVar();
 def check_comment(n, line):
     if (v.fn[v.fn_entry](n, line)):
-        print("L%i -> Commentaire mal formé." %(n) + "\n" + line);
+        print(msg.bad_comment() %(n));
+        print(line);
         return (1);
     return (0);

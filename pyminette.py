@@ -1,10 +1,15 @@
 #!/usr/bin/python
 # coding: utf8
 
-from tools.parser import test_line_length, disableColor, color;
+from i18n.locale import msg, setLang, disableColor;
+
+#from tools.color import disableColor;
+from tools.parser import test_line_length;
 from tools.comment import check_comment;
+
 import os, sys
 
+setLang("fr");
 
 FLAG_COLOR = 0x1;
 FLAG_FULL = 0x2;
@@ -19,6 +24,8 @@ for arg in sys.argv[1:]:
             disableColor();
         if 'f' in arg:
             flags |= FLAG_FULL;
+        if 'n' in arg:
+            setLang("nm");
 
 tab = [test_line_length, check_comment];
 def analyse(i, line):
@@ -37,6 +44,8 @@ for file in sys.argv[1 + flag_count:]:
             errors += analyse(l_number, line);
         l_number +=1 ;
     if (not errors):
-        print (color.colorSet.OKGREEN + "Il semblerait fort que ce fichier soit tout parfait, bravo !" + color.colorSet.EOC);
+        print(msg.ok_file());
+        #print (msg["ok_file"]);
     else:
-        print (color.colorSet.WARNING + "Il y a en tout (au moins) %i erreur%s ! Espèce de gros boulet va !" %(errors, "s" if (errors > 1) else "") + color.colorSet.EOC);
+        print(msg.err_file() % (errors, "s" if (errors > 1) else ""));
+        #print (msg["err_file"] % (errors, "s" if (errors > 1) else ""));
