@@ -1,9 +1,10 @@
 #!/usr/bin/python
 # coding: utf8
 
-from tools.parser import *
-from tools.comment import *
+from tools.parser import test_line_length, disableColor, color;
+from tools.comment import check_comment;
 import os, sys
+
 
 FLAG_COLOR = 0x1;
 FLAG_FULL = 0x2;
@@ -15,12 +16,11 @@ for arg in sys.argv[1:]:
         flag_count += 1;
         if 'c' in arg:
             flags |= FLAG_COLOR;
-            color.colorSet = NoneColor();
+            disableColor();
         if 'f' in arg:
             flags |= FLAG_FULL;
 
-
-tab = [test_line_length];
+tab = [test_line_length, check_comment];
 def analyse(i, line):
     errors = 0;
     for fn in tab:
