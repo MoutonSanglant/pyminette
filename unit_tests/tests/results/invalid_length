@@ -1,0 +1,4 @@
+L14 -> Cette ligne excède 80 caractères: 81 caractères trouvés !
+** ==============================================================================
+L18 -> Cette ligne excède 80 caractères: 83 caractères trouvés !
+	return (1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1);
