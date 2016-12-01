@@ -7,3 +7,5 @@ for file in sys.argv[1:]:
     lines = f.read().split('\n');
     for line in lines:
         print (line);
+
+print ('ok');
